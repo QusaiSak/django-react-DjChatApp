@@ -29,15 +29,19 @@ INSTALLED_APPS = [
     # Third-party apps
     "drf_spectacular",  # For API schema generation
     "rest_framework",  # Django REST Framework for building APIs
+    "corsheaders",  # Django CORS headers for API schema generation
     # Your apps
     "server.apps.ServerConfig",  # Configuration for the 'server' app
     "account.apps.AccountConfig",  # Configuration for the 'account' app
 ]
 
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+
 # Middleware configuration
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheader.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
